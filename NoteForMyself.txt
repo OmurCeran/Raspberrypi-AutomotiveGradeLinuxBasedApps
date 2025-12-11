@@ -1,0 +1,7 @@
+Note for AGL Rice fish
+
+build/tmp/deploy/images/raspberrypi3-64/bootfiles -- build outputs
+
+/meta-agl/meta-agl-bsp/conf/include --  agl_raspberrypi3_64.inc include folder
+
+meta-agl/templates/machine -- machine configurations
