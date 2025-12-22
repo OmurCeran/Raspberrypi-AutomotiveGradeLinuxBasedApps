@@ -1,0 +1,10 @@
+Common targets are:
+    agl-ivi-image
+    agl-ivi-image-crosssdk
+    agl-ivi-demo-flutter
+    agl-ivi-demo-html5
+    agl-ivi-demo-qt
+    agl-ivi-demo-qt-crosssdk
+    agl-cluster-demo-flutter
+    agl-cluster-demo-qt
+    agl-ivi-demo-control-panel

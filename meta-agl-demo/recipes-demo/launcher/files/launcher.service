@@ -1,0 +1,13 @@
+[Unit]
+Requires=homescreen.service applaunchd.service
+After=homescreen.service applaunchd.service
+
+[Service]
+Type=simple
+User=agl-driver
+Environment=XDG_RUNTIME_DIR=/run/user/1001/
+ExecStart=/usr/bin/launcher
+Restart=on-failure
+
+[Install]
+WantedBy=graphical.target
