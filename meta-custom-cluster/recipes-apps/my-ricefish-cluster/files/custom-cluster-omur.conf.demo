@@ -1,0 +1,4 @@
+[kuksa-client]
+server = "192.168.10.2"
+tls-server-name = "localhost"
+authorization = "/etc/xdg/AGL/cluster-dashboard/cluster-dashboard.token"

@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/Main.qml</file>
+        <file>qml/CircularGauge.qml</file>
+        <file>qml/BottomBar.qml</file>
+        <file>assets/map_placeholder.png</file>
+        <file>assets/car_icon.png</file>
+    </qresource>
+</RCC>

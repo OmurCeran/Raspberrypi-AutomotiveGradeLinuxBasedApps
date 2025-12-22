@@ -1,0 +1,31 @@
+[Unit]
+Description=My Ricefish Cluster UI
+Requires=agl-compositor.service
+After=agl-compositor.service
+Before=graphical.target
+
+[Service]
+Type=simple
+User=agl-driver
+Group=agl-driver
+
+# Wayland runtime
+Environment=XDG_RUNTIME_DIR=/run/user/1001
+Environment=WAYLAND_DISPLAY=wayland-0
+
+ExecStart=/usr/bin/MyRicefishCluster
+
+# Qt Wayland
+#Environment=QT_QPA_PLATFORM=wayland-egl
+#Environment=QT_WAYLAND_SHELL_INTEGRATION=ivi-shell
+
+
+Restart=always
+RestartSec=50
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=graphical.target
+
