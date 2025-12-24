@@ -2,7 +2,9 @@
 
 A custom digital instrument cluster application developed for **Automotive Grade Linux (AGL)**, running on a **Raspberry Pi 3 (64-bit)**. This project demonstrates the full pipeline of integrating a **Qt/QML** based HMI into a custom Yocto image.
 
-![Cluster Preview](https://via.placeholder.com/800x480.png?text=AGL+Cluster+Screenshot+Placeholder)
+https://github.com/user-attachments/assets/45c08014-11fd-411f-846d-fe322cedfb27
+
+text=AGL+Cluster+Screenshot+Placeholder)
 
 ## 📖 Overview
 
