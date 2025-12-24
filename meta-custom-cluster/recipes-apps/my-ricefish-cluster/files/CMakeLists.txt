@@ -12,17 +12,17 @@ find_package(Qt5 COMPONENTS Core Gui Qml Quick QuickControls2 REQUIRED)
 find_package(PkgConfig REQUIRED)
 find_program(WAYLAND_SCANNER_EXECUTABLE NAMES wayland-scanner REQUIRED)
 
-# ✅ Senin gerçek AGL Shell protokolün (version 11)
+#  Real AGL protocol (version 11)
 set(AGL_SHELL_XML "${CMAKE_SOURCE_DIR}/protocol/agl-shell.xml")
 
-# ✅ Wayland protokolleri (xdg-shell)
+#  Wayland protocols (xdg-shell)
 pkg_check_modules(WAYLAND_PROTOCOLS REQUIRED wayland-protocols>=1.18)
 pkg_get_variable(WAYLAND_PROTOCOLS_BASE wayland-protocols pkgdatadir)
 pkg_check_modules(GLIB REQUIRED glib-2.0)
-# ✅ Wayland client
+#  Wayland client
 pkg_check_modules(WAYLAND_CLIENT REQUIRED wayland-client)
 
-# ✅ AGL Shell – client header
+#  AGL Shell – client header
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/agl-shell-client-protocol.h
     COMMAND ${WAYLAND_SCANNER_EXECUTABLE} client-header
@@ -31,7 +31,7 @@ add_custom_command(
     DEPENDS ${AGL_SHELL_XML}
 )
 
-# ✅ AGL Shell – code
+#  AGL Shell – code
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/agl-shell-protocol.c
     COMMAND ${WAYLAND_SCANNER_EXECUTABLE} code
@@ -40,7 +40,7 @@ add_custom_command(
     DEPENDS ${AGL_SHELL_XML}
 )
 
-# ✅ xdg-shell – client header
+#  xdg-shell – client header
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/xdg-shell-client-protocol.h
     COMMAND ${WAYLAND_SCANNER_EXECUTABLE} client-header
@@ -49,7 +49,7 @@ add_custom_command(
     DEPENDS ${WAYLAND_PROTOCOLS_BASE}/stable/xdg-shell/xdg-shell.xml
 )
 
-# ✅ xdg-shell – code
+#  xdg-shell – code
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/xdg-shell-protocol.c
     COMMAND ${WAYLAND_SCANNER_EXECUTABLE} code
@@ -58,10 +58,10 @@ add_custom_command(
     DEPENDS ${WAYLAND_PROTOCOLS_BASE}/stable/xdg-shell/xdg-shell.xml
 )
 
-# ✅ QML resources
+#  QML resources
 qt5_add_resources(RESOURCES qml.qrc)
 
-# ✅ Include directories
+#  Include directories
 include_directories(
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
     ${GLIB_INCLUDE_DIRS}
@@ -73,7 +73,7 @@ set_source_files_properties(
     PROPERTIES LANGUAGE C
 )
 
-# ✅ Executable
+#  Executable
 add_executable(${PROJECT_NAME}
     ${CMAKE_CURRENT_BINARY_DIR}/agl-shell-protocol.c
     ${CMAKE_CURRENT_BINARY_DIR}/agl-shell-client-protocol.h
@@ -83,7 +83,7 @@ add_executable(${PROJECT_NAME}
     ${RESOURCES}
 )
 
-# ✅ Link libraries
+#  Link libraries
 target_link_libraries(${PROJECT_NAME}
     Qt5::QuickControls2
     Qt5::Core
